@@ -1,0 +1,18 @@
+package com.rule
+
+import com.Nagesh.drools.model.appli
+
+rule "score  500"
+	when 
+		productObject: appli(score <= 650)
+	then
+		productObject.setStatus("Application should be rejected");
+		productObject.setSucc(false);
+	end
+rule "score  650"
+	when 
+		productObject: appli(score > 650)
+	then
+		productObject.setStatus("Application can be  Approved!");
+		productObject.setSucc(true);
+	end
